@@ -1,0 +1,5 @@
+export const UPLOAD_STATE = {
+  NOT_STARTED: "NOT_STARTED",
+  STARTED: "STARTED",
+  COMPLETE: "COMPLETE",
+};
