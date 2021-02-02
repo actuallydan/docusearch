@@ -12,14 +12,15 @@ module.exports.createPresignedPost = async function createPresignedPost({
   });
 
   const params = {
-    Bucket: "docusearch-uploads-test",
+    Bucket: process.env.NEXT_PUBLIC_AWS_BUCKET,
     ContentType: type + "; charset=utf-8",
     ACL: "public-read",
     Key: key,
     Expires: 60,
   };
 
-  const endpoint = "docusearch-uploads-test.s3-accelerate.amazonaws.com";
+  const endpoint =
+    process.env.NEXT_PUBLIC_AWS_BUCKET + ".s3-accelerate.amazonaws.com";
 
   const options = {
     signatureVersion: "v4",
