@@ -3,6 +3,7 @@ import {
   CircularProgress,
   CircularProgressLabel,
   Img,
+  Text,
 } from "@chakra-ui/react";
 import { UPLOAD_STATE } from "../../constants/status";
 
@@ -21,22 +22,37 @@ export default function IconRow({
     scanProgress = 0;
   }
 
+  const stepText = progress3
+    ? `Results \n▽`
+    : progress2 !== UPLOAD_STATE.COMPLETE
+    ? "Extracting Text..."
+    : progress1 > 50
+    ? "Uploading"
+    : progress1 > 0
+    ? "Preparing for Accelerated Upload"
+    : "Starting Process";
+
   return (
-    <Flex w="100%" direction="row" justify="space-between">
-      <ProgressWithImage
-        img="./images/upload-doc.svg"
-        progress={progress1 || 0}
-      />
-      <ProgressWithImage
-        img="./images/search-doc.svg"
-        progress={scanProgress || 0}
-        isIndeterminate={progress2 === UPLOAD_STATE.STARTED}
-      />
-      <ProgressWithImage
-        img="./images/tag-doc.svg"
-        progress={progress3 ? 100 : 0}
-      />
-    </Flex>
+    <>
+      <Flex w="100%" direction="row" justify="space-between">
+        <ProgressWithImage
+          img="./images/upload-doc.svg"
+          progress={progress1 || 0}
+        />
+        <ProgressWithImage
+          img="./images/search-doc.svg"
+          progress={scanProgress || 0}
+          isIndeterminate={progress2 === UPLOAD_STATE.STARTED}
+        />
+        <ProgressWithImage
+          img="./images/tag-doc.svg"
+          progress={progress3 ? 100 : 0}
+        />
+      </Flex>
+      <Text textAlign="center" mt={2} fontWeight={"bold"} whiteSpace="pre-line">
+        {stepText}
+      </Text>
+    </>
   );
 }
 
