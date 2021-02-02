@@ -29,8 +29,9 @@ yarn-error.log*
 .env.development.local
 .env.test.local
 .env.production.local
+# This fucked me real bad, never forgetti
+.env.*
 
 # vercel
 .vercel
 
-.env.*
