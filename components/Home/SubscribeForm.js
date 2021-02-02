@@ -4,14 +4,13 @@ import {
   InputGroup,
   Input,
   Button,
-  InputRightElement,
   FormControl,
   FormHelperText,
   FormLabel,
   Flex,
   Text,
+  Alert,
 } from "@chakra-ui/react";
-import Card from "../Card";
 
 export default function SubscribeForm(props) {
   const [email, setEmail] = useState("");
@@ -61,11 +60,11 @@ export default function SubscribeForm(props) {
 
   if (hasSubmitted) {
     return (
-      <Card>
+      <Alert status="success" variant="left-accent">
         <Text fontSize="lg" textAlign="center" margin={"0.5em"}>
           Thanks for subscribing! Stay Tuned!
         </Text>
-      </Card>
+      </Alert>
     );
   }
   return (
