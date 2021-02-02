@@ -22,15 +22,10 @@ export default async (req, res) => {
       (err, response) => {
         if (err) {
           console.error(err);
-          res.statusCode = 400;
-          res.json({ success: false });
-          return;
         }
-        res.statusCode = 200;
-        res.json({ success: true });
-        return;
       }
     );
+    return;
   }
 
   try {
