@@ -64,6 +64,10 @@ export default function MyDropzone({ updateFiles }) {
           </Flex>
         )}
       </Card>
+      <Text fontSize="xs" textAlign="center">
+        Files in this demo are publicly accessible so be mindful of what you
+        upload!
+      </Text>
     </>
   );
 }
