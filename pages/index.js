@@ -5,6 +5,7 @@ import Footer from "../components/Footer";
 import { Flex, Code } from "@chakra-ui/react";
 import Banner from "../components/Home/Banner";
 import TryUpload from "../components/Home/TryUpload";
+import TextWithSearch from "../components/Home/TextWithSearch";
 
 export default function Home() {
   const [finalResults, setFinalResults] = useState(null);
@@ -41,11 +42,7 @@ export default function Home() {
         />
       </Flex>
 
-      {finalResults && (
-        <Code whiteSpace="pre-wrap" mx={"2em"}>
-          {JSON.stringify(finalResults, null, 2)}
-        </Code>
-      )}
+      {finalResults && <TextWithSearch text={finalResults} />}
 
       <Footer />
     </Flex>
